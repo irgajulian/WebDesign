@@ -1,0 +1,43 @@
+﻿@model WebApplication3.Models.ApplicationUser
+
+<aside class="main-sidebar">
+    
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/images/empty_profile.png" class="img-circle" alt="User Image">
+            </div>
+ 
+            <div class="pull-left info">
+                <p>Admin</p>
+            </div>
+        </div>
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+
+            <li class="@Html.IsSelected(actions: "Index")">
+
+                <a href="~/home/index">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(actions: "Data")">
+
+                <a href="~/Home/data">
+                    <i class="fa fa-file"></i> <span>Log</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(actions: "History")">
+
+                <a href="~/home/history">
+                    <i class="fa fa-history"></i> <span>History</span>
+                </a>
+            </li>
+         </ul>
+</section>
+    <!-- /.sidebar -->
+</aside>
