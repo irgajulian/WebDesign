@@ -20,12 +20,12 @@ namespace WebApplication3.Controllers
 
         public IActionResult Index()
         {
-            var chartDataModel = new ChartDataModel()
-            {
-                ChartData = new List<int>() { 12, 19, 3, 5, 2, 3 },
-                ChartLabel = new List<string>() { "Red", "Blue", "Yellow", "Green", "Purple", "Orange" },
-                ChartName = "Chart JS demo"
-            };
+            //var chartDataModel = new ChartDataModel()
+            //{
+            //    ChartData = new List<int>() { 12, 19, 3, 5, 2, 3 },
+            //    ChartLabel = new List<string>() { "Red", "Blue", "Yellow", "Green", "Purple", "Orange" },
+            //    ChartName = "Chart JS demo"
+            //};
             return View();
         }
 
@@ -50,6 +50,10 @@ namespace WebApplication3.Controllers
             return View();
         }
         public IActionResult Inline()
+        {
+            return View();
+        }
+        public IActionResult Flot()
         {
             return View();
         }
