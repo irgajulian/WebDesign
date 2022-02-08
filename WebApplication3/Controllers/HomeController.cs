@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication3.Models;
+using WebApplication3.Data;
 
 namespace WebApplication3.Controllers
 {
@@ -20,12 +21,7 @@ namespace WebApplication3.Controllers
 
         public IActionResult Index()
         {
-            //var chartDataModel = new ChartDataModel()
-            //{
-            //    ChartData = new List<int>() { 12, 19, 3, 5, 2, 3 },
-            //    ChartLabel = new List<string>() { "Red", "Blue", "Yellow", "Green", "Purple", "Orange" },
-            //    ChartName = "Chart JS demo"
-            //};
+            
             return View();
         }
 

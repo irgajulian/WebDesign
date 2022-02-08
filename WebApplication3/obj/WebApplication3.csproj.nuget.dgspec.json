@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[2.2.8, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
             "NLog": {
               "target": "Package",
               "version": "[4.7.13, )"
@@ -54,6 +58,10 @@
             "SendGrid": {
               "target": "Package",
               "version": "[9.9.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
             }
           },
           "imports": [
