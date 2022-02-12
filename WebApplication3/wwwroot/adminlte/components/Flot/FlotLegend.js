@@ -1,5 +1,6 @@
-﻿$(function () {
-
+﻿
+$(function () {
+    var data 1 = <%#WebApplication3.WebApplication3.Data.Fatchall() %> ;
     var datasets = {
         "machine 1": {
             label: "Machine 1",

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.SignalR;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,7 +11,7 @@ namespace WebApplication3.Data
 {
     public class GadgetDAO
     {
-        private string connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=New Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public List<ChartDataModel> Fatchall()
         {
             List<ChartDataModel> returnlist = new();
@@ -38,6 +40,14 @@ namespace WebApplication3.Data
             }
 
             return returnlist;
+        }
+    }
+    public class CusHub : Microsoft.AspNet.SignalR.Hub
+    {
+        public static void Show()
+        {
+            IHubContext context = GlobalHost.ConnectionManager.GetHubContext<CusHub>();
+            context.Clients.All.displayCustomer();
         }
     }
 }

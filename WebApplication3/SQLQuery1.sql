@@ -1,2 +1,2 @@
-﻿INSERT INTO dbo.shimano (romtemp,romtemp1,machinetemp1,machinetemp2) VALUES ('10','10','15','10');
+﻿UPDATE dbo.shimano SET romtemp = '39 ',romtemp1 = '36',machinetemp1 = '38',machinetemp2 = '37' WHERE time = 1
 --DELETE FROM dbo.shimano WHERE romtemp = NULL
