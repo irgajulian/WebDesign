@@ -27,3 +27,41 @@
 
 </body>
 </html>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script type="text/javascript">$(function () {
+
+            // Proxy created on the fly
+            var cus = $.connection.cusHub;
+
+            // Declare a function on the job hub so the server can invoke it
+            cus.client.displayCustomer = function () {
+                getData();
+            };
+
+            // Start the connection
+            $.connection.hub.start();
+            getData();
+        });
+
+        function getData() {
+            var $tbl = $('#tblInfo');
+            $.ajax({
+                url: $("#Get").val(),
+                type: 'GET',
+                datatype: 'json',
+                success: function (data) {
+                    $tbl.empty();
+
+                    $.each(data.listCus, function (i, model) {
+                        $tbl.append
+                            (
+                                '<tr>' +
+                                '<td>' + model.Id + '</td>' +
+                                '<td>' + model.CusId + '</td>' +
+                                '<td>' + model.CusName + '</td>' +
+                                '<tr>'
+                            );
+                    });
+                }
+            });
+        }</script>
