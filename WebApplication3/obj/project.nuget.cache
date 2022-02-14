@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "s2U2+UnTcwqDcspHXrO7foUvn9fKr6Uoicm4tWpOobW+Nd9Rb2kpISZ45xBDuneeDHdWJeDa0SMEQm+TsbaPOg==",
+  "dgSpecHash": "58w7JPrBKD9FohyfmVGKUyC1HjOTWNGm9giNdQgdTyVwl0VD4vvkIjr+JgljibHoseY6RFZU4Kd2xpXpzl2o2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Judi\\Documents\\GitHub\\WebApplication3\\WebDesign\\WebApplication3\\WebApplication3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Judi\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\Judi\\.nuget\\packages\\ikvm\\8.1.5717\\ikvm.8.1.5717.nupkg.sha512",
     "C:\\Users\\Judi\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\Judi\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
     "C:\\Users\\Judi\\.nuget\\packages\\microsoft.aspnet.signalr.core\\2.4.3\\microsoft.aspnet.signalr.core.2.4.3.nupkg.sha512",
@@ -108,6 +109,16 @@
     "C:\\Users\\Judi\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IKVM 8.1.5717' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
