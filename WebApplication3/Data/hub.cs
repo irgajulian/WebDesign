@@ -6,14 +6,13 @@ using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 using WebApplication3.Models;
 using System.Data.SqlClient;
-using javax.jws;
 
 namespace WebApplication3.Data
 {
     public class ChatHub : Hub
     {
         private string connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
+
         public async Task SendMessage()
         {
             
@@ -33,16 +32,17 @@ namespace WebApplication3.Data
                         ChartDataModel data = new();
                         data.roomtemp1 = reader.GetString(0);
                         data.roomtemp2 = reader.GetString(1);
-                        data.mcahinetemp1 = reader.GetString(2);
-                        data.maachinetemp2 = reader.GetString(3);
+                        data.machinetemp1 = reader.GetString(2);
+                        data.machinetemp2 = reader.GetString(3);
                         data.Time = reader.GetInt32(4);
-                        await Clients.All.SendAsync("ReceiveMessage", data.roomtemp1, data.roomtemp2);
+                        await Clients.All.SendAsync("ReceiveMessage", data.roomtemp1, data.roomtemp2, data.machinetemp1, data.machinetemp2);
                         returnlist.Add(data);
 
                     }
                 }
 
             }
+
 
         }
 

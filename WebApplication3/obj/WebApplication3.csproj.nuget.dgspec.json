@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Judi\\Documents\\GitHub\\WebApplication3\\WebDesign\\WebApplication3\\WebApplication3.csproj": {}
+    "D:\\Magang\\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\\WebApplication3\\WebApplication3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Judi\\Documents\\GitHub\\WebApplication3\\WebDesign\\WebApplication3\\WebApplication3.csproj": {
+    "D:\\Magang\\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\\WebApplication3\\WebApplication3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Judi\\Documents\\GitHub\\WebApplication3\\WebDesign\\WebApplication3\\WebApplication3.csproj",
+        "projectUniqueName": "D:\\Magang\\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\\WebApplication3\\WebApplication3.csproj",
         "projectName": "WebApplication3",
-        "projectPath": "C:\\Users\\Judi\\Documents\\GitHub\\WebApplication3\\WebDesign\\WebApplication3\\WebApplication3.csproj",
+        "projectPath": "D:\\Magang\\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\\WebApplication3\\WebApplication3.csproj",
         "packagesPath": "C:\\Users\\Judi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Judi\\Documents\\GitHub\\WebApplication3\\WebDesign\\WebApplication3\\obj\\",
+        "outputPath": "D:\\Magang\\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\\WebApplication3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,10 +43,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "IKVM": {
-              "target": "Package",
-              "version": "[8.1.5717, )"
-            },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.7, )"

@@ -9,8 +9,8 @@ namespace WebApplication3.Models
     {
         public string roomtemp1 { get; set; }
         public string roomtemp2 { get; set; }
-        public string mcahinetemp1 { get; set; }
-        public string maachinetemp2 { get; set; }
+        public string machinetemp1 { get; set; }
+        public string machinetemp2 { get; set; }
         public Int32 Time { get; set; }
     }
 }

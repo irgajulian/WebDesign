@@ -54,7 +54,7 @@ namespace WebApplication3
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapHub<ChatHub>("/chatHub");
-                    
+                    endpoints.MapHub<GadgetDAO>("/GadgetDAO");
             });
         }
     }

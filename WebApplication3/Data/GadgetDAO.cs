@@ -31,8 +31,8 @@ namespace WebApplication3.Data
                         ChartDataModel data = new();
                         data.roomtemp1 = reader.GetString(0);
                         data.roomtemp2 = reader.GetString(1);
-                        data.mcahinetemp1 = reader.GetString(2);
-                        data.maachinetemp2 = reader.GetString(3);
+                        data.machinetemp1 = reader.GetString(2);
+                        data.machinetemp2 = reader.GetString(3);
                         data.Time = reader.GetInt32(4);
 
                         returnlist.Add(data);

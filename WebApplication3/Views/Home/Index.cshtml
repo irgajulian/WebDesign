@@ -1,25 +1,8 @@
 ﻿@using WebApplication3.Data;
 @using WebApplication3.Models;
-@{
-    ViewData["Title"] = "Dashboard";
-    Layout = "_Adminlte";
-}
+@{ ViewData["Title"] = "Dashboard";
+    Layout = "_Adminlte"; }
 
-@{
-    List<ChartDataModel> data = new();
-    GadgetDAO datatable = new();
-    string roomtemp1;
-    string combinedstring = "";
-
-    data = datatable.Fatchall();
-    foreach (var datta in data)
-    {
-        roomtemp1 = datta.roomtemp1.ToString();
-        combinedstring = string.Join(combinedstring, roomtemp1);
-    }
-
-
-}
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -27,92 +10,93 @@
             Dashboard
             <small>Control panel</small>
         </h1>
-        <ol class="breadcrumb"></ol>
-        <span>test data =@combinedstring </span>
     </section>
     <!-- Main content -->
     <section class="content">
-        <!-- Info boxes -->
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <div id="gauge" class="100x60px"></div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="ion ion-ios-speedometer-outline"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-number">Location 2</span>
-                        <span class="info-box-text">Temperature = 10</span>
-                        <span class="info-box-text">Humidity = 100</span>
+                <div class="box box-solid">
+                    <div id="roomtempgauge">
                     </div>
-                    <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
             </div>
-            <!-- /.col -->
-            <!-- fix for small devices only -->
-            <div class="clearfix visible-sm-block"></div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="ion ion-thermometer"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-number">Machine</span>
-                        <span class="info-box-text">Temperature = 10</span>
-                    </div>
-                    <!-- /.info-box-content -->
+                <div class="box box-solid">
+                    <div id="roomhumidgauge"></div>
                 </div>
                 <!-- /.info-box -->
             </div>
-            <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="ion ion-ios-speedometer-outline"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-number">Location 4</span>
-                        <span class="info-box-text">Temperature = 10</span>
-                        <span class="info-box-text">Humidity = 100</span>
-                    </div>
-                    <!-- /.info-box-content -->
+                <div class="box box-solid">
+                    <div id="mchinetempgauge"></div>
                 </div>
                 <!-- /.info-box -->
             </div>
-            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="box box-solid">
+                    <div id="mchinehumidgauge"></div>
+                </div>
+                <!-- /.info-box -->
+            </div>
         </div>
-        @*<div class="demo-container">
-                <div id="placeholder" class="demo-placeholder" style="float:left; width:375px;"></div>
-                <p id="choices" style="float:right; width:100px;"></p>
-            </div>*@
         <!-- /.row -->
         <div class="row">
             <!-- Left col -->
             <section class="col-lg-6">
                 <!-- /.box -->
-                <div class="box box-solid bg-light-blue-gradient">
+                <div class="box box-solid ">
                     <div class="box-header">
-                        <!-- tools box -->
-                        <div class="pull-right box-tools">
-                            <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
-                                    data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /. tools -->
+                        <i class="fa fa-line-chart"></i>
+                        <h3 class="box-title">
+                            Sensor Graph
+                        </h3>
+                        <p>Update Interval: <input id="updateInterval" type="text" value="" style="text-align: right; width:3em"> ms</p>
+                    </div>
+
+                    <div class="box-body">
+                        <div id="placeholder" style="height: 350px; width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="cbgraph positioned">
+                    <p id="choices" style="width: 100%;"></p>
+                </div>
+
+            </section>
+            <section class="col-lg-6">
+                <!-- /.box -->
+                <div class="box box-solid">
+                    <div class="box-header">
                         <i class="fa fa-map-marker"></i>
                         <h3 class="box-title">
                             Sensor Location
                         </h3>
                     </div>
-                    <div class="box-body">
-                        <div id="world-mapp" style="height: 300px; width: 100%;"></div>
+                    <div class="box-body gridd">
+                        <img class="loc2" src="~/images/map.png" style="height: 350px;">
+                        <div class="box box-solid box-default loc2" style="height:80px; width:110px;">
+                            <div class="box-header with-border">
+                                <i class="fa fa-map-marker"></i>
+                                <h3 class="box-title" style="font-size:medium;">Location 1</h3>
+                            </div>
+                            <div class="box-body" style="font-size:medium;">
+                                <i class="bi bi-thermometer-half" id="loc1temp"></i>
+                                <i class="bi bi-droplet-half" id="loc1humid"></i>
+                            </div>
+                        </div>
+                        <div class="box box-solid box-default loc2 pos1" style="height:80px; width:110px;">
+                            <div class="box-header with-border">
+                                <i class="fa fa-map-marker"></i>
+                                <h3 class="box-title" style="font-size:medium;">Location 2</h3>
+                            </div>
+                            <div class="box-body" style="font-size:medium;">
+                                <i class="bi bi-thermometer" id="loc2temp"></i>
+                                <i class="bi bi-droplet-half" id="loc2humid"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-
         </div>
     </section>
     <!-- /.content -->
@@ -120,6 +104,68 @@
 <!-- /.content-wrapper -->
 
 @section Styles{
+
+    <style>
+
+        .positioned {
+            position: absolute;
+        }
+
+        .cbgraph {
+            top: 45px;
+            left: 55px;
+            font-size: small;
+        }
+
+        .loc1 {
+            /*top: 50px;
+            left: 60px;*/
+            background: rgb(17, 138, 178);
+            grid-column: 2 / 4;
+            grid-row: 1 / 5;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .loc2 {
+            grid-column: 2;
+            grid-row: 1;
+            z-index: 3;
+            opacity: 0.8;
+        }
+
+        .loc3 {
+            grid-column: 1 / 4;
+            grid-row: 1 / 5;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+            background: rgb(176, 138, 18);
+        }
+
+        .loc4 {
+            background: rgb(176, 138, 178);
+        }
+
+        .gridd {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+        .bodygrid {
+            display: grid;
+            grid-template: auto / auto auto;
+        }
+        .pos2 {
+
+        }
+        .pos1 {
+            top: 85px;
+            left: 75px;
+        }
+    </style>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <link href="~/adminlte/components/Flot/examples/examples.css" rel="stylesheet" type="text/css">
@@ -127,10 +173,10 @@
     <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/adminlte/components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/css/font/bootstrap-icons.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="~/adminlte/components/Ionicons/css/ionicons.min.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="~/adminlte/components/jvectormap/jquery-jvectormap.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/adminlte/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -169,6 +215,9 @@
     <script src="~/adminlte/components/chart.js/Chart.js"></script>
     <!-- FLOT CHARTS -->
     <script src="~/adminlte/components/Flot/jquery.flot.js"></script>
+
+    <script src="~/adminlte/components/Flot/jquery.flot.time.js"></script>
+
     <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
     <script src="~/adminlte/components/Flot/jquery.flot.resize.js"></script>
     <!-- FastClick -->
@@ -176,17 +225,10 @@
     <!-- AdminLTE App -->
     <script src="~/adminlte/dist/js/adminlte.min.js"></script>
     <!-- Page script -->
-    <script src="~/adminlte/components/Flot/FlotLegend.js"></script>
+    @*<script src="~/adminlte/components/Flot/FlotLegend.js"></script>*@
 
-    <script>
-        var temp = @Html.Raw(Json.Serialize(combinedstring));
-        var g = new JustGage({
-            id: "gauge",
-            value: temp ,
-            min: 0,
-            max: 100,
-            title: "Room AVG Temp"
-        });
-    </script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+
+    <script src="~/js/Dashboard.js"></script>
 
 }
