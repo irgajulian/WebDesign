@@ -1,10 +1,7 @@
 ﻿"use strict";
-
 //SIGNALR
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-var temp = 0;
-var dataa = [];
-connection.on("ReceiveMessage", function (roomtemp1, roomtemp2, machinetemp1, machinetemp2) {
+connection.on("ReceiveMessage", function (roomtemp1, roomtemp2, machinetemp1, machinetemp2, roomhumid1, roomhumid2, machinehumid1, machinehumid2) {
     
     var time = new Date().getTime();
     
@@ -12,16 +9,28 @@ connection.on("ReceiveMessage", function (roomtemp1, roomtemp2, machinetemp1, ma
     datasets["room temp 2"].data.push([time, roomtemp2]);
     datasets["machine temp 1"].data.push([time, machinetemp1]);
     datasets["machine temp 2"].data.push([time, machinetemp2]);
-    
-    rtg.refresh(roomtemp1);
-    rhg.refresh(roomtemp2);
-    mtg.refresh(machinetemp1);
-    mhg.refresh(machinetemp2);
-    
+    datasets["room humid 1"].data.push([time, roomhumid1]);
+    datasets["room humid 2"].data.push([time, roomhumid2]);
+    datasets["machine humid 1"].data.push([time, machinehumid1]);
+    datasets["machine humid 2"].data.push([time, machinehumid2]);
+
+    var avgroomtemp = (parseInt(roomtemp1) + parseInt(roomtemp2)) / 2;
+    var avgmachinetemp = (parseInt(machinetemp1) + parseInt(machinetemp2)) / 2;
+    var avgroomhumid = (parseInt(roomhumid1) + parseInt(roomhumid2)) / 2;
+    var avgmachinehumid = (parseInt(machinehumid1) + parseInt(machinehumid2)) / 2;
+    rtg.refresh(avgroomtemp);
+    rhg.refresh(avgroomhumid);
+    mtg.refresh(avgmachinetemp);
+    mhg.refresh(avgmachinehumid);
+
     document.getElementById("loc1temp").innerText = " " + roomtemp1;
-    document.getElementById("loc2temp").innerText = " " + roomtemp2;
-    document.getElementById("loc1humid").innerText = " " + machinetemp1 + " ";
-    document.getElementById("loc2humid").innerText = " " + machinetemp2 + " ";
+    document.getElementById("loc2temp").innerText = " " + machinetemp1;
+    document.getElementById("loc3temp").innerText = " " + machinetemp2;
+    document.getElementById("loc4temp").innerText = " " + roomtemp2;
+    document.getElementById("loc1humid").innerText = " " + roomhumid1 + "%";
+    document.getElementById("loc2humid").innerText = " " + machinehumid1 + "%";
+    document.getElementById("loc3humid").innerText = " " + machinehumid2 + "%";
+    document.getElementById("loc4humid").innerText = " " + roomhumid2 + "%";
     
 });
 
@@ -37,38 +46,73 @@ function update() {
         return console.error(err.toString());
     });
     plotAccordingToChoices();
-    event.preventDefault();
-    
+    setInterval(update, updateInterval);
 }
 
 //GAUGE
-var rtg = new JustGage({
-    id: "roomtempgauge",
-    value: temp,
+var defs1 = {
+    value: 35,
     min: 0,
     max: 100,
-    title: "Room AVG Temperature"
+    decimals: 1,
+    gaugeWidthScale: 1.0,
+    percents: true,
+    customSectors: [{
+        color: "#00B4D8",
+        lo: 0,
+        hi: 20
+    }, {
+        color: "#06FF00",
+        lo: 21,
+        hi: 40
+    }, {
+        color: "#ff0000",
+        lo: 41,
+        hi: 100
+    }],
+    counter: true,
+}
+var defs2 = {
+    value: 35,
+    min: 0,
+    max: 100,
+    decimals: 1,
+    gaugeWidthScale: 1.0,
+    percents: true,
+    customSectors: [{
+        color: "#00B4D8",
+        lo: 0,
+        hi: 20
+    }, {
+        color: "#06FF00",
+        lo: 21,
+        hi: 40
+    }, {
+        color: "#ff0000",
+        lo: 41,
+        hi: 100
+    }],
+    counter: true,
+}
+var rtg = new JustGage({
+    id: "roomtempgauge",
+    title: "Room AVG Temperaturte",
+    defaults: defs1
 });
 var rhg = new JustGage({
     id: "roomhumidgauge",
-    value: temp,
-    min: 0,
-    max: 100,
-    title: "Room AVG Humidity"
+    title: "Room AVG Humidity",
+    defaults: defs2
 });
 var mtg = new JustGage({
     id: "mchinetempgauge",
-    value: temp,
-    min: 0,
-    max: 100,
-    title: "Room AVG Temperature"
+    title: "Room AVG Temperature",
+    defaults: defs1
 });
 var mhg = new JustGage({
     id: "mchinehumidgauge",
-    value: temp,
-    min: 0,
-    max: 100,
-    title: "Room AVG Humidity"
+    title: "Room AVG Humidity",
+    defaults: defs2
 });
 
 //FLOT
@@ -88,16 +132,29 @@ var datasets = {
     "room temp 2": {
         label: "Room temp 2",
         data: []
+    },
+    "machine humid 1": {
+        label: "Machine humid 1",
+        data: []
+    },
+    "machine humid 2": {
+        label: "Machine humid 2",
+        data: []
+    },
+    "room humid 1": {
+        label: "Room humid 1",
+        data: []
+    },
+    "room humid 2": {
+        label: "Room humid 2",
+        data: []
     }
 };
-
 var i = 0;
 $.each(datasets, function (key, val) {
     val.color = i;
     ++i;
 });
-
-// insert checkboxes
 var choiceContainer = $("#choices");
 $.each(datasets, function (key, val) {
     choiceContainer.append("<br/><input type='checkbox' name='" + key +
@@ -147,6 +204,5 @@ $("#updateInterval").val(updateInterval).change(function () {
         $(this).val("" + updateInterval);
     }
 });
-setInterval(update, updateInterval);
 plotAccordingToChoices();
 update();

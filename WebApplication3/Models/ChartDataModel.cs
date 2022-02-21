@@ -7,10 +7,14 @@ namespace WebApplication3.Models
 {
     public class ChartDataModel
     {
-        public string roomtemp1 { get; set; }
-        public string roomtemp2 { get; set; }
-        public string machinetemp1 { get; set; }
-        public string machinetemp2 { get; set; }
-        public Int32 Time { get; set; }
+        public string RoomTemp1 { get; set; }
+        public string RoomTemp2 { get; set; }
+        public string MachineTemp1 { get; set; }
+        public string MachineTemp2 { get; set; }
+        public string RoomHumid1 { get; set; }
+        public string RoomHumid2 { get; set; }
+        public string MachineHumid1 { get; set; }
+        public string MachineHumid2 { get; set; }
+        public string Time { get; set; }
     }
 }
