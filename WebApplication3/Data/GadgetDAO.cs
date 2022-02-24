@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication3.Models;
-using Microsoft.AspNetCore.SignalR;
 
 namespace WebApplication3.Data
 {

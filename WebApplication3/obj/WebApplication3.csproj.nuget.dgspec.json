@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[1.1.0, )"
             },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "Microsoft.NETCore.App": {
               "target": "Package",
               "version": "[2.2.8, )"
