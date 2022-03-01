@@ -23,10 +23,10 @@ connection.on("ReceiveMessage", function (roomtemp1, roomtemp2, machinetemp1, ma
     mtg.refresh(avgmachinetemp);
     mhg.refresh(avgmachinehumid);
 
-    document.getElementById("loc1temp").innerText = " " + roomtemp1;
-    document.getElementById("loc2temp").innerText = " " + machinetemp1;
-    document.getElementById("loc3temp").innerText = " " + machinetemp2;
-    document.getElementById("loc4temp").innerText = " " + roomtemp2;
+    document.getElementById("loc1temp").innerText = " " + roomtemp1 + "°C";
+    document.getElementById("loc2temp").innerText = " " + machinetemp1 + "°C";
+    document.getElementById("loc3temp").innerText = " " + machinetemp2 + "°C";
+    document.getElementById("loc4temp").innerText = " " + roomtemp2 + "°C";
     document.getElementById("loc1humid").innerText = " " + roomhumid1 + "%";
     document.getElementById("loc2humid").innerText = " " + machinehumid1 + "%";
     document.getElementById("loc3humid").innerText = " " + machinehumid2 + "%";
@@ -56,7 +56,7 @@ var defs1 = {
     gaugeWidthScale: 1.0,
     percents: true,
     customSectors: [{
-        color: "#00B4D8",
+        color: "#ff0000",
         lo: 0,
         hi: 20
     }, {
@@ -76,40 +76,26 @@ var defs2 = {
     max: 100,
     decimals: 1,
     gaugeWidthScale: 1.0,
-    percents: true,
-    customSectors: [{
-        color: "#00B4D8",
-        lo: 0,
-        hi: 20
-    }, {
-        color: "#06FF00",
-        lo: 21,
-        hi: 40
-    }, {
-        color: "#ff0000",
-        lo: 41,
-        hi: 100
-    }],
     counter: true,
 }
 var rtg = new JustGage({
     id: "roomtempgauge",
-    title: "Room AVG Temperaturte",
+    label: "°C",
     defaults: defs1
 });
 var rhg = new JustGage({
     id: "roomhumidgauge",
-    title: "Room AVG Humidity",
+    label: "%",
     defaults: defs2
 });
 var mtg = new JustGage({
     id: "mchinetempgauge",
-    title: "Room AVG Temperature",
+    label: "°C",
     defaults: defs1
 });
 var mhg = new JustGage({
     id: "mchinehumidgauge",
-    title: "Room AVG Humidity",
+    label: "%",
     defaults: defs2
 });
 

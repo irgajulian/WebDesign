@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using WebApplication3.Models;
+using WebApplication3.Data;
+using System.Collections.Generic;
 
 namespace WebApplication3.Controllers
 {
@@ -15,11 +17,23 @@ namespace WebApplication3.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            GadgetDAO data = new();
+            List<Config> list = data.Fatchall();
+            return View(list);
         }
         public IActionResult Data()
         {
-            return View();
+            List<ChartDataModel> list = new();
+            ChatHub data = new();
+            list = data.getdata();
+            return View(list);
+        }
+        public IActionResult Datatest()
+        {
+            List<ChartDataModel> list = new();
+            ChatHub data = new();
+            list = data.getdata();
+            return View(list);
         }
         public IActionResult History()
         {

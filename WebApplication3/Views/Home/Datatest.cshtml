@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebApplication3.Models.ChartDataModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Datatest</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomTemp1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomTemp2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineTemp1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineTemp2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomHumid1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomHumid2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineHumid1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineHumid2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomTemp1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomTemp2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineTemp1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineTemp2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomHumid1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomHumid2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineHumid1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineHumid2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

@@ -361,3 +361,4 @@ D:\Magang\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\WebApplication3\obj
 D:\Magang\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\WebApplication3\obj\Debug\net5.0\WebApplication3.csproj.AssemblyReference.cache
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Home\Datatest.cshtml.g.cs

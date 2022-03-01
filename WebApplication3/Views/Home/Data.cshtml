@@ -1,8 +1,6 @@
-﻿
+﻿@model IEnumerable<WebApplication3.Models.ChartDataModel>
 @{ ViewData["Title"] = "Data";
-                Layout = "_Adminlte"; }
-
-
+    Layout = "_Adminlte"; }
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -12,43 +10,16 @@
             Data Tables
             <small>advanced tables</small>
         </h1>
-        <ol class="breadcrumb">
+        @*<ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Tables</a></li>
             <li class="active">Data tables</li>
-        </ol>
+        </ol>*@
     </section>
     <!-- Main content -->
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Hover Data Table</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Time</th>
-                                    <th>Location 1 temp</th>
-                                    <th>Location 1 humidity</th>
-                                    <th>Location 2 temp</th>
-                                    <th>Location 2 humidity</th>
-                                    <th>Location 3 temp</th>
-                                    <th>Location 3 humidity</th>
-                                    <th>Location 4 temp</th>
-                                    <th>Location 5 humidity</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Data Table With Full Features</h3>
@@ -66,9 +37,43 @@
                                     <th>Location 3 temp</th>
                                     <th>Location 3 humidity</th>
                                     <th>Location 4 temp</th>
-                                    <th>Location 5 humidity</th>
+                                    <th>Location 4 humidity</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Time)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RoomTemp1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RoomTemp2)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MachineTemp1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MachineTemp2)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RoomHumid1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RoomHumid2)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MachineHumid1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MachineHumid2)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
                             <tfoot>
                                 <tr>
                                     <th>Time</th>
@@ -79,7 +84,7 @@
                                     <th>Location 3 temp</th>
                                     <th>Location 3 humidity</th>
                                     <th>Location 4 temp</th>
-                                    <th>Location 5 humidity</th>
+                                    <th>Location 4 humidity</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -111,14 +116,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="~/adminlte/dist/css/skins/_all-skins.min.css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link rel="stylesheet" href="~/adminlte/components/font-awesome/css/googlefont.css">
 }
 
 
@@ -151,9 +150,9 @@
                 'autoWidth': false
             })
         })</script>
-    
+
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
 
-    <script src="~/js/Data.js"></script>
+    @*<script src="~/js/Data.js"></script>*@
 }
 

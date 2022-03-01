@@ -2,5 +2,6 @@
 --DELETE FROM dbo.shimano WHERE romtemp = NULL
 --CREATE TABLE dbo.d21_asd ([romtemp1] TEXT NULL,[romtemp] TEXT NULL);
 --SELECT CASE WHEN OBJECT_ID('dbo.shimano', 'U') IS NOT NULL THEN 'true' ELSE 'false' END
-INSERT INTO dbo.Tbl_login (username,password) VALUES ('irga','123123')
+--INSERT INTO dbo.Tbl_login (username,password) VALUES ('irga','123123')
+INSERT INTO dbo.Config (RoomTempLow, RoomTempHi, MachineTempLow, MachineTempHi) VALUES ('20', '40','30', '50')
 --INSERT INTO	dbo.shimano (roomTemp1, roomTemp2, machineTemp1, machineTemp2, roomHumid1, roomHumid2, machineHumid1, machineHumid2) VALUES ('10', '10', '10', '10', '10', '10', '10', '10')	

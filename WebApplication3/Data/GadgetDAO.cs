@@ -9,17 +9,17 @@ using WebApplication3.Models;
 
 namespace WebApplication3.Data
 {
-    public class GadgetDAO : Microsoft.AspNetCore.SignalR.Hub
+    public class GadgetDAO 
     {
         private string connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        public List<ChartDataModel> Fatchall()
+        public List<Config> Fatchall()
         {
-            List<ChartDataModel> returnlist = new();
+            List<Config> returnlist = new();
 
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
-                string sqlquery = "SELECT * FROM dbo.shimano";
+                string sqlquery = "SELECT * FROM dbo.Config";
                 SqlCommand command = new SqlCommand(sqlquery, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -27,14 +27,13 @@ namespace WebApplication3.Data
                 {
                     while (reader.Read())
                     {
-                        //ChartDataModel data = new();
-                        //data.RoomTemp1 = reader.GetString(0);
-                        //data.roomtemp2 = reader.GetString(1);
-                        //data.machinetemp1 = reader.GetString(2);
-                        //data.machinetemp2 = reader.GetString(3);
-                        //data.Time = reader.GetInt32(4);
-
-                        //returnlist.Add(data);
+                        Config data = new();
+                        data.lowtemproom = reader.GetString(1);
+                        data.hitemproom = reader.GetString(2);
+                        data.lowtempmachine = reader.GetString(3);
+                        data.hitempmachine = reader.GetString(4);
+                        
+                        returnlist.Add(data);
 
                     }
                 }

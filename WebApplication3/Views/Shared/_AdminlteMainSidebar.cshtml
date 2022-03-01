@@ -1,7 +1,6 @@
-﻿@model WebApplication3.Models.ApplicationUser
-
+﻿@using Microsoft.AspNetCore.Http;
 <aside class="main-sidebar">
-    
+
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
@@ -9,9 +8,8 @@
             <div class="pull-left image">
                 <img src="~/images/empty_profile.png" class="img-circle" alt="User Image">
             </div>
- 
             <div class="pull-left info">
-                <p>Admin</p>
+                <p><br/>@Context.Session.GetString("username")</p>
             </div>
         </div>
 
@@ -33,11 +31,11 @@
             </li>
             <li class="@Html.IsSelected(actions: "History")">
 
-                <a href="~/home/history">
-                    <i class="fa fa-history"></i> <span>History</span>
+                <a href="#"> 
+                    <i class="fa fa-history"></i> <span>History<br/>(under develop)</span>
                 </a>
             </li>
-         </ul>
-</section>
+        </ul>
+    </section>
     <!-- /.sidebar -->
 </aside>
