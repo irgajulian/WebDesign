@@ -1,0 +1,1 @@
+Data Source=LAPTOP-VO8F6T3F;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False

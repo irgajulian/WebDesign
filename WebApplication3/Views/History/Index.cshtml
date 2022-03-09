@@ -1,0 +1,298 @@
+﻿@using WebApplication3.Data;
+@using Microsoft.AspNetCore.Http;
+
+@{ ViewData["Title"] = "History";
+    Layout = "_Adminlte"; }
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            History
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <section class="col-lg-12">
+                <div class="box box-primary">
+                    <form action="History" method="post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="box box-primary">
+                                    <div class="box-header">
+                                        <h3 class="box-title">Date picker</h3>
+                                    </div>
+                                    <div class="box-body">
+                                        <!-- Date -->
+                                        <div class="form-group">
+                                            <label>Date:</label>
+
+                                            <input name="Year" type="password" class="form-control" placeholder="Password" />
+
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input name="Range" type="text" class="form-control pull-right" id="datepicker">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+                                        <!-- Date range -->
+                                        <div class="form-group">
+                                            <label>Date range:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="reservation">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+                                        <!-- Date and time range -->
+                                        <div class="form-group">
+                                            <label>Date and time range:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="reservationtime">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+                                        <!-- Date and time range -->
+                                        <div class="form-group">
+                                            <label>Date range button:</label>
+                                            <div class="input-group">
+                                                <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+                                                    <span>
+                                                        <i class="fa fa-calendar"></i> Date range picker
+                                                    </span>
+                                                    <i class="fa fa-caret-down"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.form group -->
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="row">
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->
+
+@section Styles{
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" type="text/css" href="~/css/dseg.css">
+
+    <link href="~/adminlte/components/Flot/examples/examples.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/adminlte/components/font-awesome/css/font-awesome.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/adminlte/components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="~/adminlte/components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="~/adminlte/plugins/iCheck/all.css">
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="~/adminlte/plugins/timepicker/bootstrap-timepicker.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/adminlte/components/select2/dist/css/select2.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/components/font-awesome/css/googlefont.css">
+
+    <link rel="stylesheet" href="~/css/font/bootstrap-icons.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/adminlte/components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/adminlte/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/adminlte/dist/css/skins/_all-skins.min.css">
+}
+
+@section Scripts{
+
+    <script src="~/adminlte/components/Justgage/raphael-2.1.4.min.js"></script>
+
+    <script src="~/adminlte/components/Justgage/justgage.js"></script>
+
+    <script src="~/adminlte/components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/adminlte/components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>$.widget.bridge('uibutton', $.ui.button);</script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/adminlte/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Select2 -->
+    <script src="~/adminlte/components/select2/dist/js/select2.full.min.js"></script>
+    <!-- InputMask -->
+    <script src="~/adminlte/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="~/adminlte/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="~/adminlte/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <!-- date-range-picker -->
+    <script src="~/adminlte/components/moment/min/moment.min.js"></script>
+    <script src="~/adminlte/components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap datepicker -->
+    <script src="~/adminlte/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="~/adminlte/components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <!-- bootstrap time picker -->
+    <script src="~/adminlte/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="~/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="~/adminlte/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/adminlte/components/chart.js/Chart.js"></script>
+    <!-- FLOT CHARTS -->
+    <script src="~/adminlte/components/Flot/jquery.flot.js"></script>
+
+    <script src="~/adminlte/components/Flot/jquery.flot.time.js"></script>
+
+    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+    <script src="~/adminlte/components/Flot/jquery.flot.resize.js"></script>
+    <!-- FastClick -->
+    <script src="~/adminlte/components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/adminlte/dist/js/adminlte.min.js"></script>
+    <!-- Page script -->
+    @*<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+
+        <script src="~/js/Dashboard.js"></script>*@
+    <script>
+        //Initialize Select2 Elements
+        $('.select2').select2()
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'DD/MM/YYYY h:mm A' })
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+            }
+        )
+
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true,
+            format: 'dd/mm/yyyy'
+        })
+
+
+        function labelFormatter(label, series) {
+            return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+                + label
+                + '<br>'
+                + Math.round(series.percent) + '%</div>'
+        }
+    </script>
+    <script>
+        var datasets = {
+            "machine temp 1": {
+                label: "Machine temp 1",
+                data: []
+            },
+            "machine temp 2": {
+                label: "Machine temp 2",
+                data: []
+            },
+            "room temp 1": {
+                label: "Room temp 1",
+                data: []
+            },
+            "room temp 2": {
+                label: "Room temp 2",
+                data: []
+            },
+            "machine humid 1": {
+                label: "Machine humid 1",
+                data: []
+            },
+            "machine humid 2": {
+                label: "Machine humid 2",
+                data: []
+            },
+            "room humid 1": {
+                label: "Room humid 1",
+                data: []
+            },
+            "room humid 2": {
+                label: "Room humid 2",
+                data: []
+            }
+        };
+        var i = 0;
+        $.each(datasets, function (key, val) {
+            val.color = i;
+            ++i;
+        });
+        var choiceContainer = $("#choices");
+        $.each(datasets, function (key, val) {
+            choiceContainer.append("<input type='checkbox' name='" + key +
+                "' checked='checked' id='id" + key + "'></input>" +
+                "<label for='id" + key + "'>"
+                + val.label + "</label>");
+        });
+
+        choiceContainer.find("input").click(plotAccordingToChoices);
+
+        function plotAccordingToChoices() {
+
+            var data = [];
+
+            choiceContainer.find("input:checked").each(function () {
+                var key = $(this).attr("name");
+                if (key && datasets[key]) {
+                    data.push(datasets[key]);
+                }
+            });
+
+            if (data.length > 0) {
+                $.plot("#placeholder", data, {
+                    yaxis: {
+                        min: 0
+                    },
+                    xaxis: {
+                        mode: "time",
+                        timezone: "browser",
+                        timeformat: '%H:%M:%S',
+                        tickDecimals: 0
+                    }
+                });
+            }
+        }
+    </script>
+}

@@ -141,7 +141,7 @@ $.each(datasets, function (key, val) {
 });
 var choiceContainer = $("#choices");
 $.each(datasets, function (key, val) {
-    choiceContainer.append("<br/><input type='checkbox' name='" + key +
+    choiceContainer.append(" <input type='checkbox' name='" + key +
         "' checked='checked' id='id" + key + "'></input>" +
         "<label for='id" + key + "'>"
         + val.label + "</label>");

@@ -120,15 +120,8 @@ C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Rel
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\WebApplication3.TagHelpers.input.cache
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\WebApplication3.TagHelpers.output.cache
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\WebApplication3.RazorCoreGenerate.cache
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Dashboardv1.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Data.cshtml.g.cs
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Flot.cshtml.g.cs
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\History.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Inline.cshtml.g.cs
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Login.cshtml.g.cs
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Register.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Shared\_Adminlte.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Shared\_AdminlteControlSidebar.cshtml.g.cs
@@ -149,3 +142,8 @@ C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Rel
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\ref\WebApplication3.dll
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\WebApplication3.pdb
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\WebApplication3.genruntimeconfig.cache
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\Home\Datatest.cshtml.g.cs
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\History\History.cshtml.g.cs
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\Razor\Views\History\Index.cshtml.g.cs

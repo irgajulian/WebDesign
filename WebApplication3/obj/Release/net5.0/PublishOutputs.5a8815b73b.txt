@@ -5056,6 +5056,7 @@ C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Rel
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\adminlte\components\font-awesome\css\font-awesome.css
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\adminlte\components\font-awesome\css\font-awesome.css.map
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\adminlte\components\font-awesome\css\font-awesome.min.css
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\adminlte\components\font-awesome\css\googlefont.css
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\adminlte\components\font-awesome\fonts\fontawesome-webfont.eot
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\adminlte\components\font-awesome\fonts\fontawesome-webfont.svg
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\adminlte\components\font-awesome\fonts\fontawesome-webfont.ttf
@@ -10669,6 +10670,7 @@ C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Rel
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\images\inv5.png
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\images\inv6.png
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\images\inv7.png
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\images\LocMap.svg
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\images\map.png
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\images\shimano-1-logo-png-transparent.png
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Release\net5.0\PubTmp\Out\wwwroot\images\shimano-1-logo-png-transparent.svg

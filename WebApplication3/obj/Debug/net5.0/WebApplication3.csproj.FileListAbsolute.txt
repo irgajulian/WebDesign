@@ -82,7 +82,6 @@ C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Deb
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\WebApplication3.TagHelpers.output.cache
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\WebApplication3.RazorCoreGenerate.cache
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Home\Data.cshtml.g.cs
-C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Home\History.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Shared\_Adminlte.cshtml.g.cs
@@ -362,3 +361,5 @@ D:\Magang\WebDesign-9e79e0eab2ad051f6b3f9e478553a298d64e2d3a\WebApplication3\obj
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\Home\Datatest.cshtml.g.cs
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\History\History.cshtml.g.cs
+C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\obj\Debug\net5.0\Razor\Views\History\Index.cshtml.g.cs

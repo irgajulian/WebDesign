@@ -10,14 +10,17 @@ namespace WebApplication3.Data
 {
     public class ChatHub : Hub
     {
-        public string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //public string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //public string conn = @"Data Source=192.168.0.3;Initial Catalog=DB_Shimano;User Id=irgajulian;Password=123123";
+        string[] line = System.IO.File.ReadAllLines(@"C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\bin\Debug\Config.txt");
+
         SqlConnection connection = new();
         SqlCommand cmd = new();
         SqlDataReader dr;
 
         void Connectionstring()
         {
-            connection.ConnectionString = conn;
+            connection.ConnectionString = line[0];
         }
 
         public List<ChartDataModel> getdata()
@@ -70,16 +73,7 @@ namespace WebApplication3.Data
             time = time.Remove(0, 11);
             string today = date.Replace('/', '_');
 
-            string sqlcreatettable = String.Format("CREATE TABLE dbo.D{0} ([ID] INT  IDENTITY (1, 1) NOT NULL,[roomTemp1] TEXT NULL, [roomTemp2] TEXT NULL, [machineTemp1] TEXT NULL, [machineTemp2] TEXT NULL, [roomHumid1] TEXT NULL, [roomHumid2] TEXT NULL, [machineHumid1] TEXT NULL, [machineHumid2] TEXT NULL, [time] TEXT NULL, PRIMARY KEY CLUSTERED([ID] ASC)); ", today);
-            string sqlchecktable = String.Format("SELECT CASE WHEN OBJECT_ID('D{0}', 'U') IS NOT NULL THEN 'true' ELSE 'false' END;", today);
             string sqlgetdata = "SELECT * FROM dbo.shimano";
-
-            bool b = false;
-            b = execute(sqlchecktable);
-            if (b == false)
-            {
-                Execnonquery(sqlcreatettable);
-            }
 
             dr = Execquery(sqlgetdata);
 
@@ -96,7 +90,7 @@ namespace WebApplication3.Data
                     data.RoomHumid2 = dr.GetString(6);
                     data.MachineHumid1 = dr.GetString(7);
                     data.MachineHumid2 = dr.GetString(8);
-                    data.Time = dr.GetString(9);
+                    //data.Time = dr.GetString(9);
                     await Clients.All.SendAsync("ReceiveMessage", data.RoomTemp1, data.RoomTemp2, data.MachineTemp1, data.MachineTemp2, data.RoomHumid1, data.RoomHumid2, data.MachineHumid1, data.MachineHumid2);
                     returnlist.Add(data);
                 }
@@ -136,13 +130,22 @@ namespace WebApplication3.Data
 
             DateTime thisDay = DateTime.Today;
             string date = thisDay.ToString("d");
-            string time = thisDay.ToString();
-            time = time.Remove(0, 11);
+            string time = thisDay.ToString("T");
             string today = date.Replace('/', '_');
 
-            string sqlinsertdata = String.Format("UPDATE dbo.shimano SET roomTemp1 = '{0}', roomTemp2 = '{1}', machineTemp1 = '{2}', machineTemp2 = '{3}', roomHumid1 = '{4}', roomHumid2 = '{5}', machineHumid1 = '{6}', machineHumid2 = '{7}', Time = '{8}' WHERE ID = 1", temp1, temp2, temp3, temp4, humid1, humid2, humid3, humid4, time);
-            //string sqlinsertdata = String.Format("INSERT INTO dbo.D{0} (roomTemp1, roomTemp2, machineTemp1, machineTemp2, roomHumid1, roomHumid2, machineHumid1, machineHumid2, Time) VALUES ('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", today, temp1, temp2, temp3, temp4, humid1, humid2, humid3, humid4, time);
+            string sqldatarandom = String.Format("UPDATE dbo.shimano SET roomTemp1 = '{0}', roomTemp2 = '{1}', machineTemp1 = '{2}', machineTemp2 = '{3}', roomHumid1 = '{4}', roomHumid2 = '{5}', machineHumid1 = '{6}', machineHumid2 = '{7}', Time = '{8}' WHERE ID = 1", temp1, temp2, temp3, temp4, humid1, humid2, humid3, humid4, time);
+            string sqlinsertdata = String.Format("INSERT INTO dbo.D{0} (roomTemp1, roomTemp2, machineTemp1, machineTemp2, roomHumid1, roomHumid2, machineHumid1, machineHumid2, Time) VALUES ('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", today, temp1, temp2, temp3, temp4, humid1, humid2, humid3, humid4, time);
+            string sqlcreatettable = String.Format("CREATE TABLE dbo.D{0} ([ID] INT  IDENTITY (1, 1) NOT NULL,[roomTemp1] TEXT NULL, [roomTemp2] TEXT NULL, [machineTemp1] TEXT NULL, [machineTemp2] TEXT NULL, [roomHumid1] TEXT NULL, [roomHumid2] TEXT NULL, [machineHumid1] TEXT NULL, [machineHumid2] TEXT NULL, [time] TEXT NULL, PRIMARY KEY CLUSTERED([ID] ASC)); ", today);
+            string sqlchecktable = String.Format("SELECT CASE WHEN OBJECT_ID('D{0}', 'U') IS NOT NULL THEN 'true' ELSE 'false' END;", today);
 
+            bool b = false;
+            b = execute(sqlchecktable);
+            if (b == false)
+            {
+                Execnonquery(sqlcreatettable);
+            }
+
+            Execnonquery(sqldatarandom);
             Execnonquery(sqlinsertdata);
 
             connection.Close();

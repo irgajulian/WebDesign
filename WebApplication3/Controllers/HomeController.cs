@@ -28,17 +28,6 @@ namespace WebApplication3.Controllers
             list = data.getdata();
             return View(list);
         }
-        public IActionResult Datatest()
-        {
-            List<ChartDataModel> list = new();
-            ChatHub data = new();
-            list = data.getdata();
-            return View(list);
-        }
-        public IActionResult History()
-        {
-            return View();
-        }
         public IActionResult Login()
         {
             return View();

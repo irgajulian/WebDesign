@@ -12,7 +12,9 @@ namespace WebApplication3.Controllers
     {
         public string SessionInfo_Name { get; private set; }
 
-        public string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //public string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SHIMANODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string[] line = System.IO.File.ReadAllLines(@"C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\bin\Debug\Config.txt");
+
         SqlConnection connection = new();
         SqlCommand cmd = new();
         SqlDataReader dr;
@@ -24,7 +26,7 @@ namespace WebApplication3.Controllers
         }
         void Connectionstring()
         {
-            connection.ConnectionString = conn;
+            connection.ConnectionString = line[0];
         }
         [HttpPost]
         public IActionResult Verify(Account acc)
@@ -32,7 +34,7 @@ namespace WebApplication3.Controllers
             Connectionstring();
             connection.Open();
             cmd.Connection = connection;
-            cmd.CommandText = "SELECT * FROM dbo.Tbl_login WHERE username = '"+acc.Name+"' and password = '"+acc.Password+"'";
+            cmd.CommandText = "SELECT * FROM dbo.login WHERE username = '"+acc.Name+"' and password = '"+acc.Password+"'";
             dr = cmd.ExecuteReader();
             
             if (dr.Read())
