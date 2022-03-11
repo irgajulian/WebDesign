@@ -4,7 +4,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 connection.on("ReceiveMessage", function (roomtemp1, roomtemp2, machinetemp1, machinetemp2, roomhumid1, roomhumid2, machinehumid1, machinehumid2) {
     
     var time = new Date().getTime();
-    
+
     datasets["room temp 1"].data.push([time, roomtemp1]);
     datasets["room temp 2"].data.push([time, roomtemp2]);
     datasets["machine temp 1"].data.push([time, machinetemp1]);
@@ -149,6 +149,9 @@ $.each(datasets, function (key, val) {
 
 choiceContainer.find("input").click(plotAccordingToChoices);
 
+plotAccordingToChoices();
+update();
+
 function plotAccordingToChoices() {
 
     var data = [];
@@ -168,14 +171,14 @@ function plotAccordingToChoices() {
             xaxis: {
                 mode: "time",
                 timezone: "browser",
-                timeformat: '%H:%M:%S',
-                tickDecimals: 0
+                timeformat: '%H:%M:%S:%d',
+                tickDecimals: 4
             }
         });
     }
 }
 
-var updateInterval = 5000 //Fetch data ever x milliseconds
+var updateInterval = 5000 //Fetch data every x milliseconds
 $("#updateInterval").val(updateInterval).change(function () {
     var v = $(this).val();
     if (v && !isNaN(+v)) {
@@ -189,5 +192,3 @@ $("#updateInterval").val(updateInterval).change(function () {
     }
 });
 setInterval(update, updateInterval);
-//plotAccordingToChoices();
-//update();

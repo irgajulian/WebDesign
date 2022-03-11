@@ -32,7 +32,8 @@ namespace WebApplication3
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    //webBuilder.UseUrls("http://192.168.151.53:5000", "https://192.168.151.53:5001");
+                    string[] line = System.IO.File.ReadAllLines(@"C:\Users\Judi\Documents\GitHub\WebApplication3\WebDesign\WebApplication3\bin\Debug\Config.txt");
+                    webBuilder.UseUrls(line[1],line[2]);
                     //webBuilder.UseUrls("http://192.168.0.69:5000", "https://192.168.0.69:5001");
                 });
 

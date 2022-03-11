@@ -11,7 +11,7 @@ namespace WebApplication3.Models
         public string Range { get; set; }
         public string Day { get; set; }
         public string Month { get; set; }
-        public string Year { get; set; }
+        public bool Year { get; set; }
 
     }
 }

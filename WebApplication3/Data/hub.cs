@@ -128,13 +128,19 @@ namespace WebApplication3.Data
             int humid3 = val.Next(0, 100);
             int humid4 = val.Next(0, 100);
 
-            DateTime thisDay = DateTime.Today;
+            DateTime thisDay = DateTime.Now;
             string date = thisDay.ToString("d");
             string time = thisDay.ToString("T");
             string today = date.Replace('/', '_');
 
+            DateTime centuryBegin = new DateTime(1970, 1, 1);
+            DateTime currentDate = DateTime.Now;
+
+            long elapsedTicks = (currentDate.Ticks - centuryBegin.Ticks);
+            TimeSpan elapsedSpan = new TimeSpan(elapsedTicks);
+            double asa = Math.Round(elapsedSpan.TotalMilliseconds) - 25200000 ;
             string sqldatarandom = String.Format("UPDATE dbo.shimano SET roomTemp1 = '{0}', roomTemp2 = '{1}', machineTemp1 = '{2}', machineTemp2 = '{3}', roomHumid1 = '{4}', roomHumid2 = '{5}', machineHumid1 = '{6}', machineHumid2 = '{7}', Time = '{8}' WHERE ID = 1", temp1, temp2, temp3, temp4, humid1, humid2, humid3, humid4, time);
-            string sqlinsertdata = String.Format("INSERT INTO dbo.D{0} (roomTemp1, roomTemp2, machineTemp1, machineTemp2, roomHumid1, roomHumid2, machineHumid1, machineHumid2, Time) VALUES ('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", today, temp1, temp2, temp3, temp4, humid1, humid2, humid3, humid4, time);
+            string sqlinsertdata = String.Format("INSERT INTO dbo.D{0} (roomTemp1, roomTemp2, machineTemp1, machineTemp2, roomHumid1, roomHumid2, machineHumid1, machineHumid2, Time) VALUES ('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", today, temp1, temp2, temp3, temp4, humid1, humid2, humid3, humid4, asa);
             string sqlcreatettable = String.Format("CREATE TABLE dbo.D{0} ([ID] INT  IDENTITY (1, 1) NOT NULL,[roomTemp1] TEXT NULL, [roomTemp2] TEXT NULL, [machineTemp1] TEXT NULL, [machineTemp2] TEXT NULL, [roomHumid1] TEXT NULL, [roomHumid2] TEXT NULL, [machineHumid1] TEXT NULL, [machineHumid2] TEXT NULL, [time] TEXT NULL, PRIMARY KEY CLUSTERED([ID] ASC)); ", today);
             string sqlchecktable = String.Format("SELECT CASE WHEN OBJECT_ID('D{0}', 'U') IS NOT NULL THEN 'true' ELSE 'false' END;", today);
 
